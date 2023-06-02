@@ -21,6 +21,8 @@ def hae_tapahtumat():
             print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
 
 while True:
+    print("Tervetuloa finanssilaskuriin")
+    print("")
     print("1. Lisää tapahtuma")
     print("2. Näytä tapahtumat")
     print("3. Hae tapahtumia")
