@@ -1,38 +1,38 @@
 import csv
 
-transactions = []
+tapahtumat = []
 
-def add_transaction():
-    name = input("Enter the name of the transaction: ")
-    date = input("Enter the date of the transaction (YYYY-MM-DD): ")
-    amount = float(input("Enter the amount of the transaction: "))
-    transactions.append({"name": name, "date": date, "amount": amount})
+def lisää_tapahtuma():
+    nimi = input("Syötä tapahtuman nimi: ")
+    päivämäärä = input("Syötä tapahtuman päivämäärä (VVVV-KK-PP): ")
+    määrä = float(input("Syötä tapahtuman määrä: "))
+    tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
 
-def view_transactions():
-    for transaction in transactions:
-        print(f"{transaction['date']} - {transaction['name']}: {transaction['amount']}")
+def näytä_tapahtumat():
+    for tapahtuma in tapahtumat:
+        print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
 
-def search_transactions():
-    search_type = input("Search by name or date? ")
-    search_query = input(f"Enter the {search_type} to search for: ")
+def hae_tapahtumat():
+    haku_tyyppi = input("Hae nimellä vai päivämäärällä? ")
+    haku_kysely = input(f"Syötä {haku_tyyppi} haettavaksi: ")
 
-    for transaction in transactions:
-        if transaction[search_type] == search_query:
-            print(f"{transaction['date']} - {transaction['name']}: {transaction['amount']}")
+    for tapahtuma in tapahtumat:
+        if tapahtuma[haku_tyyppi] == haku_kysely:
+            print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
 
 while True:
-    print("1. Add a transaction")
-    print("2. View transactions")
-    print("3. Search transactions")
-    print("4. Quit")
+    print("1. Lisää tapahtuma")
+    print("2. Näytä tapahtumat")
+    print("3. Hae tapahtumia")
+    print("4. Lopeta")
 
-    choice = input("Enter your choice: ")
+    valinta = input("Syötä valintasi: ")
 
-    if choice == "1":
-        add_transaction()
-    elif choice == "2":
-        view_transactions()
-    elif choice == "3":
-        search_transactions()
-    elif choice == "4":
+    if valinta == "1":
+        lisää_tapahtuma()
+    elif valinta == "2":
+        näytä_tapahtumat()
+    elif valinta == "3":
+        hae_tapahtumat()
+    elif valinta == "4":
         break
