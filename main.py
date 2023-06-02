@@ -21,14 +21,16 @@ def hae_tapahtumat():
             print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
 
 while True:
-    print("Tervetuloa finanssilaskuriin")
+    print("########################################")
+    print("####  Tervetuloa finanssilaskuriin  ####")
+    print("########################################")
     print("")
     print("1. Lisää tapahtuma")
     print("2. Näytä tapahtumat")
     print("3. Hae tapahtumia")
     print("4. Lopeta")
 
-    valinta = input("Syötä valintasi: ")
+    valinta = input("Syötä valintasi numero: ")
 
     if valinta == "1":
         lisää_tapahtuma()
