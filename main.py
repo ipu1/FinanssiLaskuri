@@ -9,19 +9,19 @@ def lisää_tapahtuma():
     määrä = float(input("Syötä tapahtuman määrä: "))
     tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
 
-#Taustalla ohjelmassa lasketaan käyttäjän saldoa, eli kaikkien maksutapahtumien summa tai erotus
+#Taustalla ohjelmassa lasketaan käyttäjän saldoa, eli kaikkien maksutapahtumien summa tai erotus.
 def laske_saldo():
     saldo = 0
     for tapahtuma in tapahtumat:
         saldo += tapahtuma["määrä"]
     return saldo
 
-#Toinen toiminto listaa kaikki käyttäjän lisäämät maksutapahtumat peräkkäin
+#Toinen toiminto listaa kaikki käyttäjän lisäämät maksutapahtumat peräkkäin.
 def näytä_tapahtumat():
     for tapahtuma in tapahtumat:
         print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
 
-#Kolmas toiminto on näyttää saldo, jonka laske_saldo laskee taustalla
+#Kolmas toiminto on näyttää saldo, jonka laske_saldo laskee taustalla.
 def näytä_saldo():
     saldo = laske_saldo()
     if saldo > 0:
@@ -31,7 +31,7 @@ def näytä_saldo():
     else:
         print("Saldo: 0")
 
-#Tehdään True-silmukka, joka jatkaa ohjelman suorittamista, kunnes se käsketään lopettamaan esim. break-komennolla
+#Tehdään True-silmukka, joka jatkaa ohjelman suorittamista, kunnes se käsketään lopettamaan esim. break-komennolla.
 while True:
     print("########################################")
     print("####  Tervetuloa finanssilaskuriin  ####")
