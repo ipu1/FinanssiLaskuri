@@ -6,7 +6,7 @@ def lisää_tapahtuma():
     while True:
         try:
             nimi = input("Syötä tapahtuman nimi: ")
-            päivämäärä = (input("Syötä tapahtuman päivämäärä (PP-KK-VVVV): "))
+            päivämäärä = input("Syötä tapahtuman päivämäärä (PP-KK-VVVV): ")
             määrä = float(input("Syötä tapahtuman määrä: "))
             tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
             break
