@@ -1,3 +1,5 @@
+import json
+
 tapahtumat = []
 
 def lisää_tapahtuma():
@@ -20,6 +22,19 @@ def lisää_tapahtuma():
         return
 
     tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
+    tapahtumat.sort(key=lambda x: x["päivämäärä"])  # Lajittele tapahtumat päivämäärän perusteella
+    tallenna_tapahtumat()
+
+def tallenna_tapahtumat():
+    with open("tapahtumat.txt", "w") as tiedosto:
+        json.dump(tapahtumat, tiedosto)
+
+def lataa_tapahtumat():
+    try:
+        with open("tapahtumat.txt", "r") as tiedosto:
+            tapahtumat.extend(json.load(tiedosto))
+    except FileNotFoundError:
+        print("Tiedostoa 'tapahtumat.txt' ei löytynyt. Luodaan uusi tiedosto.")
 
 def laske_saldo():
     saldo = 0
@@ -40,6 +55,9 @@ def näytä_saldo():
     else:
         print("Saldo: 0")
 
+# Lataa tallennetut tapahtumat tiedostosta ohjelman avattaessa
+lataa_tapahtumat()
+
 while True:
     print("1. Lisää tapahtuma")
     print("2. Näytä tapahtumat")
@@ -55,4 +73,5 @@ while True:
     elif valinta == "3":
         näytä_saldo()
     elif valinta == "4":
+        tallenna_tapahtumat()  # Tallenna tapahtumat tiedostoon ennen ohjelman sulkemista
         break
