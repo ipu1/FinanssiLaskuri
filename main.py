@@ -5,7 +5,7 @@ tapahtumat = []
 #Ohjelman ensimmäinen ja toiminnalle tärkein toiminto on lisätä maksutapahtumia
 def lisää_tapahtuma():
     nimi = input("Syötä tapahtuman nimi: ")
-    päivämäärä = input("Syötä tapahtuman päivämäärä (VVVV-KK-PP): ")
+    päivämäärä = input("Syötä tapahtuman päivämäärä (PP-KK-VVVV): ")
     määrä = float(input("Syötä tapahtuman määrä: "))
     tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
 
