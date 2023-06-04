@@ -81,8 +81,9 @@ while True:
     print("      |   3. Näytä saldo         |      ")
     print("      |    4.  Lopeta            |      ")
     print("      ----------------------------      ")
-
+    print("")
     valinta = input("Syötä valintasi: ")
+    print("----------------")
 
     if valinta == "1":
         lisää_tapahtuma()
