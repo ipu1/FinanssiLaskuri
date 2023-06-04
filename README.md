@@ -2,6 +2,6 @@
 
 Finanssilaskuri
 
-Ohjelman avulla voit listata menneitä maksutapahtumiasi, ja ohjelma laskee kaikkien tapahtumien erotuksen tai summan. Ohjelma on kuitenkin tapauskohtainen, joten lisätyt tiedot eivät tallennu ohjelman käytön jälkeen.
+Ohjelman avulla voit listata menneitä maksutapahtumiasi, ja ohjelma laskee kaikkien tapahtumien erotuksen tai summan. Listatut tiedot ja tapahtumat tallentuvat erilliseen tekstiedostoon.
 
 Tekijät: Juho Jaaranen, Ilmari Muhonen, Julius Mäki.
