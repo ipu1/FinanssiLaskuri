@@ -13,16 +13,19 @@ def lisää_tapahtuma():
         except ValueError:
             print("Virheellinen arvo")
 
+#Taustalla ohjelmassa lasketaan käyttäjän saldoa, eli kaikkien maksutapahtumien summa tai erotus
 def laske_saldo():
     saldo = 0
     for tapahtuma in tapahtumat:
         saldo += tapahtuma["määrä"]
     return saldo
 
+#Toinen toiminto listaa kaikki käyttäjän lisäämät maksutapahtumat peräkkäin
 def näytä_tapahtumat():
     for tapahtuma in tapahtumat:
         print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
 
+#Kolmas toiminto on näyttää saldo, jonka laske_saldo laskee taustalla
 def näytä_saldo():
     saldo = laske_saldo()
     if saldo > 0:
@@ -33,6 +36,10 @@ def näytä_saldo():
         print("Saldo: 0")
 #Tehdään True-silmukka, joka jatkaa ohjelman suorittamista, kunnes se käsketään lopettamaan esim. break-komennolla
 while True:
+    print("########################################")
+    print("####  Tervetuloa finanssilaskuriin  ####")
+    print("########################################")
+    print("")
     print("1. Lisää tapahtuma")
     print("2. Näytä tapahtumat")
     print("3. Näytä saldo")
