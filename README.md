@@ -1,6 +1,6 @@
 # FinanssiLaskuri
 
-Finanssilaskuri
+Työkalu taloudenhallintaan ja ylläpitoon.
 
 Ohjelman avulla voit listata menneitä maksutapahtumiasi, ja ohjelma laskee kaikkien tapahtumien erotuksen tai summan. Listatut tiedot ja tapahtumat tallentuvat erilliseen tekstiedostoon.
 
