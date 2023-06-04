@@ -1,8 +1,8 @@
 import json
-
+#JSON-importilla saadaan helposti avattua ja tallenettua tietoa tekstitiedostoon.
 tapahtumat = []
 
-#Ohjelman ensimmäinen ja toiminnalle tärkein toiminto on lisätä maksutapahtumia. Append-toiminto tallentaa jokaisen lisätyn tiedon lokaaliin tiedostoon.
+#Ohjelman ensimmäinen ja toiminnalle tärkein toiminto on lisätä maksutapahtumia. Append-toiminto lisää jokaisen syötetyn tiedon tiedostoon. Kysytään nimeä, päivämäärää ja määrää eli hintaa.
 def lisää_tapahtuma():
     nimi = input("Syötä tapahtuman nimi: ")
     päivämäärä = input("Syötä tapahtuman päivämäärä (PP.KK.VVVV): ")
@@ -92,5 +92,5 @@ while True:
     elif valinta == "3":
         näytä_saldo()
     elif valinta == "4":
-        tallenna_tapahtumat()  # Tallenna tapahtumat tiedostoon ennen ohjelman sulkemista
+        tallenna_tapahtumat()  # Tallentaa tapahtumat tiedostoon ennen ohjelman sulkemista.
         break
