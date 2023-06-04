@@ -2,6 +2,7 @@ import json
 
 tapahtumat = []
 
+#Ohjelman ensimmäinen ja toiminnalle tärkein toiminto on lisätä maksutapahtumia. Append-toiminto tallentaa jokaisen lisätyn tiedon lokaaliin tiedostoon.
 def lisää_tapahtuma():
     nimi = input("Syötä tapahtuman nimi: ")
     päivämäärä = input("Syötä tapahtuman päivämäärä (PP.KK.VVVV): ")
@@ -18,17 +19,18 @@ def lisää_tapahtuma():
     try:
         määrä = float(määrä)
     except ValueError:
-        print("Virheellinen määrä. Syötä määrä numerona.")
+        print("Virheellinen määrä. Älä käytä pilkkua.")
         return
 
     tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
-    tapahtumat.sort(key=lambda x: x["päivämäärä"])  # Lajittele tapahtumat päivämäärän perusteella
     tallenna_tapahtumat()
 
+#Tiedot tapahtumista tallentuvat tekstitiedostoon.
 def tallenna_tapahtumat():
     with open("tapahtumat.txt", "w") as tiedosto:
         json.dump(tapahtumat, tiedosto)
 
+#Ohjelman avatessa, tiedot haetaan kyseisestä tekstitiedostosta.
 def lataa_tapahtumat():
     try:
         with open("tapahtumat.txt", "r") as tiedosto:
@@ -36,16 +38,22 @@ def lataa_tapahtumat():
     except FileNotFoundError:
         print("Tiedostoa 'tapahtumat.txt' ei löytynyt. Luodaan uusi tiedosto.")
 
+#Taustalla ohjelmassa lasketaan käyttäjän saldoa, eli kaikkien maksutapahtumien summa tai erotus.
 def laske_saldo():
     saldo = 0
     for tapahtuma in tapahtumat:
         saldo += tapahtuma["määrä"]
     return saldo
 
+#Toinen toiminto listaa kaikki käyttäjän lisäämät maksutapahtumat peräkkäin. Ne järjestyvät datetime-importin avulla päivämäärän mukaan.
+from datetime import datetime
+
 def näytä_tapahtumat():
-    for tapahtuma in tapahtumat:
+    järjestetyt_tapahtumat = sorted(tapahtumat, key=lambda x: datetime.strptime('-'.join(x['päivämäärä']), '%d-%m-%Y'))
+    for tapahtuma in järjestetyt_tapahtumat:
         print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
 
+#Kolmas toiminto on näyttää saldon, jonka laske_saldo laskee taustalla.
 def näytä_saldo():
     saldo = laske_saldo()
     if saldo > 0:
@@ -58,6 +66,14 @@ def näytä_saldo():
 # Lataa tallennetut tapahtumat tiedostosta ohjelman avattaessa
 lataa_tapahtumat()
 
+#Tervetuloa-viesti, joka tulostuu vain ohjelman aloittaessa.
+print("")
+print("########################################")
+print("####  Tervetuloa finanssilaskuriin  ####")
+print("########################################")
+print("")
+
+#Luodaan True-silmukka, jotta saadaan ohjelma pyörimään kunnes toisin pyydetään.
 while True:
     print("1. Lisää tapahtuma")
     print("2. Näytä tapahtumat")
