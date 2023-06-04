@@ -75,12 +75,12 @@ print("")
 
 #Luodaan True-silmukka, jotta saadaan ohjelma pyörimään kunnes toisin pyydetään.
 while True:
-    print("      ############################      ")
-    print("      #  1. Lisää tapahtuma      #      ")
-    print("      #  2. Näytä tapahtumat     #      ")
-    print("      #   3. Näytä saldo         #      ")
-    print("      #    4.  Lopeta            #      ")
-    print("      ############################      ")
+    print("      ----------------------------      ")
+    print("      |  1. Lisää tapahtuma      |      ")
+    print("      |  2. Näytä tapahtumat     |      ")
+    print("      |   3. Näytä saldo         |      ")
+    print("      |    4.  Lopeta            |      ")
+    print("      ----------------------------      ")
 
     valinta = input("Syötä valintasi: ")
 
