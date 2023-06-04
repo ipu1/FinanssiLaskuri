@@ -2,12 +2,16 @@ import csv
 
 tapahtumat = []
 
-#Ohjelman ensimmäinen ja toiminnalle tärkein toiminto on lisätä maksutapahtumia
 def lisää_tapahtuma():
-    nimi = input("Syötä tapahtuman nimi: ")
-    päivämäärä = input("Syötä tapahtuman päivämäärä (PP-KK-VVVV): ")
-    määrä = float(input("Syötä tapahtuman määrä: "))
-    tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
+    while True:
+        try:
+            nimi = input("Syötä tapahtuman nimi: ")
+            päivämäärä = int(input("Syötä tapahtuman päivämäärä (PP-KK-VVVV): "))
+            määrä = float(input("Syötä tapahtuman määrä: "))
+            tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
+            break
+        except ValueError:
+            print("Virheellinen arvo")
 
 #Taustalla ohjelmassa lasketaan käyttäjän saldoa, eli kaikkien maksutapahtumien summa tai erotus
 def laske_saldo():
@@ -30,6 +34,7 @@ def näytä_saldo():
         print(f"Saldo: {saldo}")
     else:
         print("Saldo: 0")
+
 while True:
     print("########################################")
     print("####  Tervetuloa finanssilaskuriin  ####")
