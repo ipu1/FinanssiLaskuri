@@ -1,11 +1,24 @@
-import csv
-
 tapahtumat = []
 
 def lisää_tapahtuma():
     nimi = input("Syötä tapahtuman nimi: ")
-    päivämäärä = int(input("Syötä tapahtuman päivämäärä (PP.KK.VVVV): "))
-    määrä = float(input("Syötä tapahtuman määrä: "))
+    päivämäärä = input("Syötä tapahtuman päivämäärä (PP.KK.VVVV): ")
+    try:
+        päivämäärä = päivämäärä.split('.')
+        päivä = int(päivämäärä[0])
+        kuukausi = int(päivämäärä[1])
+        vuosi = int(päivämäärä[2])
+    except (ValueError, IndexError):
+        print("Virheellinen päivämäärä. Syötä päivämäärä muodossa PP.KK.VVVV.")
+        return
+
+    määrä = input("Syötä tapahtuman määrä: ")
+    try:
+        määrä = float(määrä)
+    except ValueError:
+        print("Virheellinen määrä. Syötä määrä numerona.")
+        return
+
     tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
 
 def laske_saldo():
