@@ -3,11 +3,15 @@ import csv
 tapahtumat = []
 #Ohjelman ensimmäinen ja toiminnalle tärkein toiminto on lisätä maksutapahtumia. Append-toiminto tallentaa jokaisen lisätyn tiedon lokaaliin tiedostoon.
 def lisää_tapahtuma():
-
-    nimi = input("Syötä tapahtuman nimi: ")
-    päivämäärä = int(input("Syötä tapahtuman päivämäärä (PP-KK-VVVV): "))
-    määrä = float(input("Syötä tapahtuman määrä: "))
-    tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
+    while True:
+        try:
+            nimi = input("Syötä tapahtuman nimi: ")
+            päivämäärä = int(input("Syötä tapahtuman päivämäärä (PP-KK-VVVV): "))
+            määrä = float(input("Syötä tapahtuman määrä: "))
+            tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
+            break
+        except ValueError:
+            print("Virheellinen arvo")
 
 def laske_saldo():
     saldo = 0
