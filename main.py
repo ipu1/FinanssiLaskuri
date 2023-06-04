@@ -8,6 +8,7 @@ def lisää_tapahtuma():
     päivämäärä = input("Syötä tapahtuman päivämäärä (PP.KK.VVVV): ")
     määrä = float(input("Syötä tapahtuman määrä: "))
     tapahtumat.append({"nimi": nimi, "päivämäärä": päivämäärä, "määrä": määrä})
+    print("")
 
 #Taustalla ohjelmassa lasketaan käyttäjän saldoa, eli kaikkien maksutapahtumien summa tai erotus.
 def laske_saldo():
@@ -20,8 +21,9 @@ def laske_saldo():
 def näytä_tapahtumat():
     for tapahtuma in tapahtumat:
         print(f"{tapahtuma['päivämäärä']} - {tapahtuma['nimi']}: {tapahtuma['määrä']}")
+    print("")
 
-#Kolmas toiminto on näyttää saldo, jonka laske_saldo laskee taustalla.
+#Kolmas toiminto on näyttää saldon, jonka laske_saldo laskee taustalla.
 def näytä_saldo():
     saldo = laske_saldo()
     if saldo > 0:
@@ -30,13 +32,18 @@ def näytä_saldo():
         print(f"Saldo: {saldo}")
     else:
         print("Saldo: 0")
+    print("")
 
+
+#Tervetuloa-viesti tulostuu vain ohjelman aloittaessa, joten se jätetään silmukan ulkopuolelle.
+print("")
+print("########################################")
+print("####  Tervetuloa finanssilaskuriin  ####")
+print("########################################")
+print("")
 #Tehdään True-silmukka, joka jatkaa ohjelman suorittamista, kunnes se käsketään lopettamaan esim. break-komennolla.
 while True:
-    print("########################################")
-    print("####  Tervetuloa finanssilaskuriin  ####")
-    print("########################################")
-    print("")
+    
     print("1. Lisää tapahtuma")
     print("2. Näytä tapahtumat")
     print("3. Näytä saldo")
